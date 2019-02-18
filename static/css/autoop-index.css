@@ -1,0 +1,239 @@
+html {
+    min-height: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+body {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    background: url(../templates/img/background.jpg) no-repeat fixed top;
+    background-size: 100%;
+}
+
+.swiper-container {
+    overflow-y: visible;
+    /*margin-right: -17px;*/
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    padding: 0;
+}
+
+.container {
+    display: block;
+    min-height: 100%;
+    padding: 0 50px;
+}
+
+.row {
+    height: 100%;
+    margin-top: 20px;
+}
+
+
+/*left*/
+.index-menu {
+    position: relative;
+    min-height: 100%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+h1 {
+    margin: 0;
+    line-height: 70px;
+}
+
+.index-menu-home a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    color: #EEE;
+    height: 70px;
+    background-color: rgba(56,156,182,1);
+}
+
+.index-menu-nav {
+    padding: 0;
+}
+
+.index-menu-nav>li {
+    display: block;
+    border:  1px solid #999;
+    border-right: 1px solid transparent;
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #FCFCFC;
+}
+    .index-menu-nav>li:hover,
+    #active {
+        background-color: #EEE;
+        border-right: 1px solid #EEE;
+        transition: background-color .5s ease-out;
+    }
+    .index-menu-nav>li:hover .first,
+    #active .first {
+        color: #1F2034;
+        background-color: transparent;
+        transition: all .5s ease-out;
+    }
+    .index-menu-nav>li:hover .card,
+    #active .card {
+        transform: rotateY(-180deg);
+        /*right: -60px;*/
+        transition: transform .3s ease-out;
+    }
+
+
+.index-menu-nav a {
+    position: relative;
+    font-weight: 400;
+    font-size: 20px;
+    color: #1F2034;
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    height: 60px;
+    perspective: 80;
+    -webkit-perspective: 80;
+    perspective-origin: right;
+    -webkit-perspective-origin: 100% 150%;
+}
+
+.index-menu-nav span {
+    float: left;
+    margin-left: 15px;
+}
+
+.index-menu-nav .first {
+    line-height: 60px;
+    width: 60px;
+    height: 59px;
+    margin: 0;
+    color: #EEE;
+    background-color: rgba(56,156,182,1);
+}
+
+.index-menu-nav .card {
+    line-height: 60px;
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    right: -60px;
+    top: -1px;
+    transform-style: preserve-3d;
+}
+
+.card i {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  vertical-align: bottom;
+  backface-visibility: hidden;
+}
+
+.card .front {
+    width: 50%;
+    position: absolute;
+    left: 0;
+}
+
+.card .back {
+    width: 0;
+    height: 0;
+    transform: rotateY(180deg);
+    border: 30px transparent solid;
+    border-left: 30px #EEE solid;
+}
+
+
+
+
+
+
+
+/*right*/
+.swiper-slide {
+    /*overflow-y: scroll;*/
+}
+
+.index-main {
+    min-height: 100%;
+    padding: 0 30px;
+    background-color: transparent;
+}
+
+.index-main-top {
+    position: relative;
+    right: 0;
+    top: 0;
+    height: 70px;
+    background-color: #FCFCFC;
+}
+
+.index-main-top-nav {
+    position: absolute;
+    left: 120px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    color: #2E8EA7;
+    line-height: 70px;
+    vertical-align: bottom;
+}
+.index-main-top-nav span {
+    font-size: 25px;
+    line-height: 70px;
+    vertical-align: bottom;
+}
+
+.index-main-top-signout {
+    width: 200px;
+    height: 70px;
+    background-color: rgba(56,156,182,1);
+    line-height: 70px;
+    float: right;
+}
+
+.index-main-top-signout a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 70px;
+    color: #EEE;
+}
+
+.index-main-contain {
+    width: 100%;
+    min-height: 82vh;
+                        /*height of contain*/
+    padding: 10px;
+    margin: 20px 0;
+    background-color: #FCFCFC;
+}
+
+/*modal-overlay*/
+#modal-overlay {
+    display: none;
+}
+
+/*响应式*/
+@media screen and (max-width: 1100px) {
+    body {
+        background-size: 300%;
+    }
+}

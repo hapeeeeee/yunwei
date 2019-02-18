@@ -1,0 +1,9 @@
+---
+- hosts: all
+  remote_user: root
+  sudo: no
+  tasks:
+   - name: Install PHP Package
+     homebrew: name=php state=present
+   - name: Restart PHP Service
+     service: name=php state=restarted

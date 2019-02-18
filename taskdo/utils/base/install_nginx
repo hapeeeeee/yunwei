@@ -1,0 +1,8 @@
+---
+- hosts: all
+  sudo: no
+  tasks:
+   - name: InstallNginxPackage
+     homebrew: name=nginx state=present
+   - name: stop Nginx Service
+     shell: nginx -s reload

@@ -1,0 +1,250 @@
+.contain-header,
+.theTable {
+    margin: 20px 50px;
+}
+.contain-header {
+    position: relative;
+    height: 30px;
+}
+.contain-header h3 {
+    width: 50%;
+    margin-left: 10px;
+    text-align: left;
+    color: #333;
+}
+.contain-header .breadcrumb {
+    position: absolute;
+    top: 2px;
+    margin: 0;
+    padding: 0;
+    left: 150px;
+    background-color: transparent;
+}
+.btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+table th{
+    text-align: center;
+}
+table td a{
+    cursor: pointer;
+}
+.contain-footer {
+    margin: 30px;
+}
+.contain-footer div {
+    /*float: left;*/
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 8px;
+    cursor: pointer;
+}
+    .contain-footer div:hover, 
+    .contain-footer div:hover::after, 
+    .contain-footer div:hover::before
+    {
+        color: white;
+        background-color: #5BC0DE;
+    }
+
+    #disable, 
+    #disable:hover, 
+    #disable:hover::after, 
+    #disable:hover::before
+    {
+        color: #CCC;
+        background-color: #EEE;
+    }
+
+    #page, 
+    #page::after, 
+    #page::before 
+    {
+        color: white;
+        background-color: #52B2CB;
+    }
+
+.contain-footer .angle {
+    z-index: 1;
+    width: 60px;
+    background-color: #EEE;
+}
+.contain-footer .number {
+    z-index: 1;
+    width: 30px;
+    background-color: #EEE;
+}
+    .contain-footer .number::after {
+        z-index: -1;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -9px;
+        width: 18px;
+        height: 30px;
+        transform: skew(-30deg);
+        background-color: #EEE;
+    }
+    .contain-footer .number::before {
+        z-index: -1;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -9px;
+        width: 18px;
+        height: 30px;
+        transform: skew(-30deg);
+        background-color: #EEE;
+    }
+    .contain-footer .prev::after {
+        z-index: -1;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -9px;
+        width: 18px;
+        height: 30px;
+        transform: skew(-30deg);
+        background-color: #EEE;
+    }
+    .contain-footer .next::before {
+        z-index: -1;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -9px;
+        width: 18px;
+        height: 30px;
+        transform: skew(-30deg);
+        background-color: #EEE;
+    }
+
+
+/*modal-overlay and modal-data*/
+#modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+#modal-lay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}
+.modal-data,
+.modal-confirm {
+    display: none;
+    width: 500px;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    margin-left: -250px;
+    padding: 30px;
+    background-color: #FCFCFC;
+}
+.modal-close {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    display: block;
+    float: right;
+    cursor:pointer;
+}
+#modal-overlay h3 {
+    margin: 0;
+    padding: 30px 0 10px 0;
+}
+#modal-overlay hr {
+    margin: 0 0 30px 0;
+}
+.form-group {
+    height: 40px;
+    margin: 15px 0;
+}
+#modal-overlay label {
+    height: 34px;
+    margin: 0;
+    line-height: 34px;
+}
+.modal-footer {
+    height: 50px;
+    border: 0;
+    position: relative;
+}
+.modal-footer .submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.modal-footer .reset {
+    position: absolute;
+    top: 0;
+    right: 80px;
+}
+/*/modal-overlay and modal-data*/
+
+/*modal-confirm*/
+#modal-overlay .confirm-text {
+    text-align: center;
+    margin: 30px 0;
+}
+.confirm-active {
+    top: 20%;
+    transition: top .3s;
+}
+.confirm-disappear {
+    top: -100%;
+    transition: top .3s;
+}
+/*/modal-confirm*/
+
+/*modal-alert*/
+.modal-alert {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    margin-left: -20%;
+    width: 40%;
+    height: 40px;
+    border-radius: 0 0 10px 10px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    background: #52B2CB;
+    z-index: 2;
+}
+/*/modal-alert*/
+
+.active {
+    top: 0;
+    transition: top .3s;
+}
+.alert-disappear {
+    top: -50px;
+    transition: top .3s;
+}
+.error-disappear {
+    top: -50px;
+    transition: top .3s;
+    background-color: #C9302C;
+}
+.error {
+    top: 0;
+    transition: top .3s;
+    background-color: #C9302C;
+}

@@ -1,0 +1,150 @@
+.index-main-contain {
+    text-align: left;
+}
+
+.contain-header {
+    position: relative;
+    height: 30px;
+    margin: 20px 50px;
+}
+
+.contain-header h3 {
+    margin-left: 10px;
+}
+
+.contain-header .breadcrumb {
+    position: absolute;
+    left: 150px;
+    top: 2px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.contain-middle {
+    margin: 20px 50px;
+    padding: 0 15%;
+}
+.contain-middle .part-masters {
+    margin-top: 50px;
+    height: 100px;
+}
+
+.contain-middle .select-masters, 
+.contain-middle .install-softwares, 
+.contain-middle .return-result {
+    height: 100%;
+    padding: 5px;
+    border: 1px solid #CCC;
+    border-radius: 2px;
+    background-color: white;
+    overflow: auto;
+}
+
+.contain-middle .add-masters, 
+.contain-middle .submit-softwares {
+    float: right;
+    height: 40px;
+    width: 65px;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    line-height: 38px;
+    cursor: pointer;
+    border: 1px solid #5BC0DE;
+    border-radius: 4px;
+    background-color: #52B2CB;
+}
+
+.contain-middle .add-masters:hover, 
+.contain-middle .submit-softwares:hover {
+    background-color: #5BC0DE;
+}
+
+.part-softwares {
+    margin-top: 80px;
+    height: 100px;
+}
+
+.part-result {
+    margin-top: 80px;
+    height: 200px;    
+}
+
+#myModal .modal-body {
+    overflow: auto;
+    height: 60vh;
+}
+
+
+/* 元素 */
+[id^="master_"], 
+.result-masters
+{
+    float: left;  
+    margin: 5px;
+    border: 2px solid #3290D0;
+    border-radius: 2px;
+    color: white;
+    background-color:#479BD5;
+}
+
+.result-masters {
+    width: 95%;
+}
+
+[id^="softwares_"], 
+.result-softwares
+{
+    float: left; 
+    margin: 5px;
+    border: 2px solid #4DA8A1;
+    border-radius: 2px;
+    color: white;
+    background-color:#5FB1AB;
+}
+
+[id^="master_"] div,
+[id^="softwares_"] div, 
+.result-masters div, 
+.result-softwares div {
+    float: left;
+    margin: 2px;
+}
+
+[id^="master_"] a,
+.result-masters a {
+    width: 18px;
+    cursor: pointer;    
+} 
+
+[id^="softwares_"] a, 
+.result-softwares a {
+    width: 18px;
+    cursor: pointer;
+    color: #1F746F;
+}
+    [id^="softwares_"] a:hover {
+        color: #0F5552;
+    }
+
+.result-softwares-error {
+    float: left; 
+    margin: 5px;
+    border: 2px solid #CB5252;
+    border-radius: 2px;
+    color: white;
+    background-color:#E66F6F;
+}
+
+.result-softwares-error div {
+    float: left;
+    margin: 2px;
+}
+
+.result-softwares-error a {
+    width: 18px;
+    cursor: pointer;
+    color: #B93E3E;
+}
+

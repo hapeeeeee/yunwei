@@ -1,0 +1,14 @@
+#####
+#扫描主机配置信息
+#Auth:xianghuaicong@163.com
+#####
+hostsinfo :
+# 执行命令获取系统相关信息
+            syscmd_list : ["cat /etc/issue", #获取操作系统
+                           "cat /etc/redhat-release",
+                           "hostname",
+#                           "cat /sys/class/net/[^vtlsb]*/address",
+                           "cat /sys/class/net/[^vtlsb]*/address||esxcfg-vmknic -l|awk '{print $8}'|grep ':'",
+                           "dmidecode -s system-serial-number",
+                           "dmidecode -s system-manufacturer",
+                           "dmidecode -s system-product-name"]

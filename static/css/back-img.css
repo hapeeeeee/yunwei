@@ -1,0 +1,10 @@
+body {
+	/*background: repeat-x;*/
+	background-size:  100% auto;
+	/*height: auto;
+	width: 100%;*/
+    /*color: white;
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;*/
+    /*background-size: 100%;*/
+    overflow: hidden;
+}

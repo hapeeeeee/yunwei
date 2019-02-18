@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+       	<!--<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">-->
+        <title>TiMi</title>
+
+
+        <!-- css -->
+        <!--<link rel="stylesheet" href="./css/bootstrap.css">-->
+        <link rel="stylesheet" type="text/css" href="{% static "css/make-user.css"  %}"/>
+        <link rel="stylesheet" href="{% static "css/font-awesome.min.css"  %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/all-page.css"  %}"/>
+<!--        <link rel="stylesheet" href="./css/autoop-signin.css">-->
+
+
+    </head>
+
+
+    <body background="../static/img/cover.jpg" style="width: 100%; height: auto;">
+        <div class="container-fluid">
+        	
+            <div class="signinform col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1">
+                <h1>JOIN</h1>
+                <div class="form-top">
+                    <h3><b>注册</b></h3>
+                    <p>请注册您的用户</p>
+                </div>
+
+                <div class="form-bottom">
+{#                    <form class="form-inline">#}
+                        <div class="form-group">
+                            <label class="control-label" for="username"></label>
+                            <input id="username" class="fa " type="text" name="username" placeholder="&#xf007;&nbsp;&nbsp;|&emsp;&nbsp;用户名" required="required">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="control-label" for="password"></label>
+                            <input id="password" class="fa " type="password" name="password"  placeholder="&#xf084;&nbsp;|&emsp;&nbsp;密码" required="required">
+                        </div>
+                        <br>
+                        <div class="form-btn">
+                        	<button class="btn btn-info btn-block" id="umake"> 注册</button>
+                        </div>
+{#                    </form>#}
+                </div>
+            </div>
+        </div>
+
+
+        <!-- javascript -->
+        <!--<script src="./js/jquery-2.2.3.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>-->
+        <script src="{% static "js/jquery-2.2.3.min.js"  %}" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+		$('#umake').click(function(){
+		    username = $('#username').val();
+            password = $('#password').val();
+            csrf=$("input[name='csrfmiddlewaretoken']").val();
+            params={"username":username,"password":password,"csrfmiddlewaretoken":csrf};
+            $.post('/users/register/',params,function () {
+                window.location.pathname='{% url "user:index" %}'
+            })
+
+
+        	})
+		
+        </script>
+
+
+    </body>
+</html>

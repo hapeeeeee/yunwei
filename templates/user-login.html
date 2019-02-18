@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+       	<!--<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">-->
+        <title>TiMi</title>
+
+
+        <!-- css -->
+        <link rel="stylesheet" href="{% static "css/all-page.css"  %}">
+        <link rel="stylesheet" href="{% static "css/font-awesome.min.css"  %}">
+        <link rel="stylesheet" href="{% static "css/make-user.css"  %}">
+
+
+    </head>
+
+
+    <body background="../static/img/cover.jpg">
+        <div class="container-fluid">
+            <div class="signinform col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1">
+                <h1>LOGIN</h1>
+                <div class="form-top">
+                    <h3><b>登录</b></h3>
+                    <p>请输入您的用户名和密码</p>
+                </div>
+
+                <div class="form-bottom">
+{#                    <form class="form-inline">#}
+
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label" for="username"></label>
+                            <input id="username" class="fa  " type="text" name="username" placeholder="&#xf007;&nbsp;&nbsp;|&emsp;&nbsp;用户名" required="required">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="control-label" for="password"></label>
+                            <input id="password" class="fa " type="password" name="password"  placeholder="&#xf084;&nbsp;|&emsp;&nbsp;密码" required="required">
+                        </div>
+                        <div class="form-warning">
+                            <!-- <p class="text-error">用户名或密码错误</p> -->
+                        </div>
+                        <div class="form-btn">
+                            <button type="button" id="log-in" class="btn btn-info btn-block">登录</button>
+                            <input type="button" class="btn btn-info btn-block" onclick="window.location.href='{% url "user:nake" %}'" value="注册">
+                        </div>
+{#                    </form>#}
+                </div>
+            </div>
+        </div>
+
+
+        <!-- javascript -->
+        <script src="{% static "js/jquery-2.2.3.min.js" %}"></script>
+        <script src="{% static "js/bootstrap.min.js"  %}"></script>
+        <script type="text/javascript">
+        	
+        	$('#log-in').click(function(){
+                username = $('#username').val();
+                password = $('#password').val();
+                csrf=$("input[name='csrfmiddlewaretoken']").val();
+                params={"username":username,"password":password,"csrfmiddlewaretoken":csrf}
+                $.post('/users/login/',params,function () {
+        		    window.location.pathname='{% url "user:index" %}'
+                })
+
+        		
+        	})
+        </script>
+        
+
+
+    </body>
+</html>

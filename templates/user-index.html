@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>TiMi</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Demo css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'  %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'  %}">
+     <!--Link Swiper's CSS--> 
+    <link rel="stylesheet" href="{% static 'css/swiper-3.4.2.min.css'  %}">
+     <!--styles--> 
+    <link rel="stylesheet" href="{% static 'css/swiper-menu.css'  %}">
+    <link rel="stylesheet" href="{% static 'css/autoop-index.css'  %}">
+
+    <!-- 动态加载 -->
+    <link rel="stylesheet" href="{% static 'css/autoop-zkym.css'  %}">
+    <link rel="stylesheet"  href="{% static 'css/all-page.css'  %}"/>
+    <link rel="stylesheet" href="{% static 'css/delete.css' %}">
+
+</head>
+<body background="{% static 'img/background.jpg' %}">
+    {% csrf_token %}
+    <!-- modal-overlay -->
+  
+        <div class="modal-alert">
+            <h4></h4>
+        </div>
+
+    <!-- Swiper -->
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+
+            <div class="swiper-slide menu">
+
+                <div class="index-menu col-sm-9 col-xs-11">
+                    <div class="index-menu-home">
+                        <a href="{% url 'user:index' %}"><h1>TiMi</h1></a>
+                    </div>
+                    <ul class="index-menu-nav">
+                    	<!--当前页面的左侧状态-->
+                        <!--<li id="active">-->
+                        <li id="active">
+                            <a href="{% url 'user:index' %}">
+                                <!--<span class="first fa fa-laptop"></span>-->
+                                <span class="first fa fa-cny"></span>
+                                <span class="text">用户信息</span>
+                                <span class="card">
+                                    <i class="front fa fa-angle-left"></i>
+                                    <i class="back"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'user:addputer' %}">
+                                <span class="first fa fa-bar-chart"></span>
+                                <span class="text">添加主机</span>
+                                <span class="card">
+                                    <i class="front fa fa-angle-left"></i>
+                                    <i class="back"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'user:addapp' %}">
+                                <span class="first fa fa-cny"></span>
+                                <span class="text">部署管理</span>
+                                <span class="card">
+                                    <i class="front fa fa-angle-left"></i>
+                                    <i class="back"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'user:putermage' %}">
+                                <span class="first fa fa-sitemap"></span>
+                                <span class="text">主机信息</span>
+                                <span class="card">
+                                    <i class="front fa fa-angle-left"></i>
+                                    <i class="back"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'user:remotquery' %}">
+                                <span class="first fa fa-dashboard"></span>
+                                <span class="text">远程查询</span>
+                                <span class="card">
+                                    <i class="front fa fa-angle-left"></i>
+                                    <i class="back"></i>
+                                </span>
+                            </a>
+                        <!--</li>
+                        <li>
+                            <a href="">
+                                <span class="first fa fa-book"></span>
+                                <span class="text"></span>
+                                <span class="card">
+                                    <i class="front fa fa-angle-left"></i>
+                                    <i class="back"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="first fa fa-book"></span>
+                                <span class="text"></span>
+                                <span class="card">
+                                    <i class="front fa fa-angle-left"></i>
+                                    <i class="back"></i>
+                                </span>
+                            </a>
+                        </li>-->
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="content">
+                <div class=" col-sm-12 col-xs-12">
+                    <div class="index-main-top">
+                        <div class="menu-button">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <h2 class="index-main-top-nav">TiMi&emsp;<i class="fa fa-angle-right"></i>&emsp;<span>用户信息</span></h2>
+                        <div class="index-main-top-signout">
+                            {% if request.user.id %}
+                                <span>欢迎您：{{ request.user.username }}</span>
+                                <div style="float: right">
+                                    <a href="{% url 'user:logout' %}"><span>注销</span ></a>
+                                </div>
+                            {% else %}
+                                 <a href="{% url 'user:login' %}"><span class="fa">&#xf007;&emsp;</span>登陆</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="index-main-contain my-back">
+
+                        <!-- contain -->
+                        <div class="">
+                            <div class="" style="width: auto;">
+                            	<h3>尊敬的: <span>{{ request.user.username }}
+                            		
+                            	</span>您好！！</h3>
+                            </div>
+                            <div class="add-log">
+                            		<table border="1" style="width: 100%; height: 100px;" id="uindex">
+										<tr>
+                                        <td>序号</td>
+										<td>电脑ip</td>
+										<td>电脑用户名</td>
+										<td>详细信息</td>
+										</tr>
+{#										<tr>#}
+{#										<td>r</td>#}
+{#										<td> 2</td>#}
+{#										<td><span><a href="{% url 'user:putermage' %}">详细信息</a>#}
+{#											#}
+{#										</span></td>#}
+{#										</tr>#}
+										</table>
+                            		
+
+                                <button id="change">修改信息</button>
+								<button id="delete">删除主机</button>
+                            	<div id="change-form" class="modal-form" id="" style="text-align: left">
+									<div class="form-group">
+										<label for="inputIP" class="col-sm-2 control-label">远程主机ip：</label>
+										<div class="col-sm-10">
+											<input name="hostip" type="IP" class="form-control" id="hostip" required="required" placeholder="远程主机ip地址">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputstatus" class="col-sm-2 control-label">用 &nbsp;&nbsp; 户 &nbsp;  名：</label>
+										<div class="col-sm-10">
+											<input name="hostname" type="status" class="form-control" id="hostname" required="required" placeholder="远程主机用户名">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputjg" class="col-sm-2 control-label">密 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+										<div class="col-sm-10">
+											<input name="host_id_pub" type="jg" class="form-control" id="host_id_pub" required="required" placeholder="远程主机密码">
+										</div>
+									</div>
+
+									<div class="modal-footer">
+                                        <!--< id="but">确认修改</>-->
+                                        <input type="button" id="but" value="确认修改">
+
+									</div>
+
+								</div>
+
+                            </div>
+                        </div>
+                        <!-- /contain -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/swiper-3.4.2.min.js' %}"></script>
+    <script src="{% static 'js/jquery-2.2.3.min.js'  %}"></script>
+    <script src="{% static 'js/bootstrap.min.js'  %}"></script>
+
+    <script type="text/javascript">
+    	$(function(){
+            $.ajax({
+                type: "get",
+                dataType:"json",
+                url: "/hosts/hosts/",
+　　　　　　　　　 success: function(data){//返回的参数就是 action里面所有的有get和set方法的参数
+                    console.log(data);
+                    for (i=0; i<data.length;i++){
+                         $('#uindex').append(
+                             `
+                         <tr>
+
+                             <td>${i+1}</td>
+                             <td>
+
+                             <input type="radio" name="modify" value="${data[i].hostip}">${data[i].hostip}
+                             <label style="display: none">${data[i].id}</label>
+                             <label style="display: none">${data[i].username}</label>
+                             <label style="display: none">${data[i].password}</label>
+                             <label style="display: none">${data[i].port}</label>
+                             </td>
+                             <td> ${data[i].username}</td>
+                             <td><span> <a href="{% url 'user:putermage' %}">详细信息</a></span></td>
+                         </tr>
+                             `
+                         );
+
+                    }
+
+                }
+            })
+
+    	});
+
+
+
+        $('#change').click(function(){
+
+            var hostname=$("input[name='modify']:checked").next().next().text()
+            var host_id_pub=$("input[name='modify']:checked").next().next().next().text()
+
+            $("#hostip").val($("input[name='modify']:checked").val())
+            $("#hostname").val(hostname)
+            $("#host_id_pub").val(host_id_pub)
+
+            $('#change-form').toggleClass('col01');
+
+
+    	});
+        $("#but").click(function () {
+            var id=$("input[name='modify']:checked").next().text();
+            var params = {
+                "hostip": $("#hostip").val(),
+                "port": $("input[name='modify']:checked").next().next().next().next().text(),
+                "username": $("#hostname").val(),
+                "password": $("#host_id_pub").val(),
+
+            };
+            var url="/hosts/hosts/"+ id +"/";
+            $.ajax({
+
+                url:url,
+                type:"PUT",
+                dataType:"json",
+                data:params,
+                headers:{"X-CSRFTOKEN":$("input[name='csrfmiddlewaretoken']").val()},
+                success:function () {
+                    alert("修改成功");
+                    window.location.reload()
+                },
+                error:function () {
+                    alert("修改失败")
+                }
+
+            })
+
+        });
+    	$('#delete').click(function(){
+    	    var id=$("input[name='modify']:checked").next().text();
+            $.ajax({
+                url:"/hosts/hosts/"+ id +"/",
+                type:"delete",
+                dataType:"json",
+                data:{"id":id},
+                headers:{"X-CSRFTOKEN":$("input[name='csrfmiddlewaretoken']").val()},
+                success:function () {
+                    alert("删除成功")
+                    window.location.reload()
+                },
+                error:function () {
+                    alert("删除失败")
+                }
+
+            })
+
+
+    	})
+    </script>
+</body>
+</html>
