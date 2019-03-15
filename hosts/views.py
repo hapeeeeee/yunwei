@@ -15,7 +15,6 @@ from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
 # Create your views here.
 
-
 # class HostloginViewSet(CacheResponseMixin, ModelViewSet):
 #     """
 #     list:
@@ -92,17 +91,6 @@ class HostViewSet(ModelViewSet):
         return data
 
     def host_test(self, serializer, hosts, all_hostname):
-        x = 1
-        # all_username = serializer.data['host_username'].split(',')
-        # all_password = serializer.data['host_password'].split(',')
-        # all_hostname = serializer.data['hostname'].split(',')
-        # all_ip = serializer.data['hostip'].split(',')
-        # all_port = serializer.data['hostport'].split(',')
-
-        # hosts = []
-        # for i in range(len(all_ip)):
-        #     host = {'username': all_username[i], 'password': all_password[i], 'ip': all_ip[i], 'port': all_port[i], 'hostname': all_hostname[i]}
-        #     hosts.append(host)
 
         resource = dict()
 
@@ -119,36 +107,6 @@ class HostViewSet(ModelViewSet):
 
         return data
 
-
-# class HostTopViewSet(ModelViewSet):
-#     serializer_class = HostTopSerializers
-#     queryset = serializer_class.Meta.model.objects.all()
-#
-#     def get_queryset(self):
-#         user = self.request.user
-#         return self.serializer_class.Meta.model.objects.filter(hostowner=user)
-
-
-# def nginx_install(request):
-#     username = request.POST['host_username']
-#     password = request.POST['host_password']
-#     hostname = request.POST['hostname']
-#     ip = request.POST['hostip']
-#     port = request.POST['hostport']
-#
-#     host = {'username': username, 'password': password, 'ip': ip, 'port': port, 'hostname': hostname}
-#     hosts = [host, ]
-#
-#     resource = dict()
-#
-#     resource['test'] = dict()
-#     resource['test']['hosts'] = hosts
-#
-#     rbt = ANSRunner(resource)
-#
-#     rbt.run_playbook(playbook_path='../yunwei/taskdo/utils/base/install_nginx')
-#     data = rbt.get_playbook_result()
-#     print(data)
 
 def make_resource(hosts):
     resource = dict()
@@ -190,15 +148,6 @@ def play_book(request):
     return JsonResponse(res)
 
 
-# from hosts.serializers import TaskSerializers
-# class TaskViewSet(ModelViewSet):
-#     serializer_class = TaskSerializers
-#     queryset = Host.objects.all()
-
-
-    # def get_queryset(self):
-    #     user = self.request.user
-    #     return Host.objects.filter(hostowner=user)
 
 
 def ad_hoc(request):
@@ -220,21 +169,8 @@ def ad_hoc(request):
     rbt.run_model(host_list=hosts,module_name='shell',module_args=module_args)
     res = rbt.get_model_result()
 
-    # data = dict()
-    # success_hosts = res['success'].keys()
-    # unreach_hosts = res['unreachable'].keys()
-    # failed_hosts = res['failed'].keys()
-    #
-    # for success_host in success_hosts:
-    #     data[success_host] = res['success'][success_host]['stdout']
-    #
-    # for failed_host in failed_hosts:
-    #     data[failed_host] = res['failed'][failed_host]['stderr']
-    #
-    # for unreach_host in unreach_hosts:
-    #     data[unreach_host] = res['unreachable'][unreach_host]['msg']
     return JsonResponse(res)
-# /user/login
+
 
 
 
