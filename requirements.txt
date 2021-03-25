@@ -73,7 +73,7 @@ python-dateutil==2.7.5
 python-editor==1.0.3
 python-nmap==0.6.1
 pytz==2018.9
-PyYAML==3.13
+PyYAML==5.4
 redis==3.0.1
 requests==2.21.0
 service==0.5.1
