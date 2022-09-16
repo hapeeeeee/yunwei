@@ -48,7 +48,7 @@ itypes==1.1.0
 Jinja2==2.10
 kombu==4.2.2.post1
 lockfile==0.12.2
-Mako==1.0.7
+Mako==1.2.2
 Markdown==3.0.1
 MarkupSafe==1.1.0
 msgpack==0.5.6
